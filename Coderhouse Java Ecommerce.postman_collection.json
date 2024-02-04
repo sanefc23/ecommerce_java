@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"address\": \"Lavarden 1238\",\r\n    \"name\": \"Celeste Curtoni\",\r\n    \"email\": \"cele.curtoni@gmail.com\",\r\n    \"phone\": \"1183843333\"\r\n}",
+							"raw": "{\r\n    \"address\": \"Lavarden 1238\",\r\n    \"name\": \"Jorge Ruiz\",\r\n    \"email\": \"jruiz@gmail.com\",\r\n    \"phone\": \"1183843432\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -45,7 +45,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"address\": \"Medrano 1234\",\r\n    \"name\": \"Jose Hernández\",\r\n    \"email\": \"jose.her@gmail.com\",\r\n    \"phone\": \"1137829770\"\r\n}",
+							"raw": "{\r\n    \"address\": \"Lavarden 1238\",\r\n    \"name\": \"Jorge Ruiz\",\r\n    \"email\": \"jruiz@gmail.com\",\r\n    \"phone\": \"1189998888\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -53,7 +53,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/clients/update/19",
+							"raw": "http://localhost:8080/clients/update/23",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -62,7 +62,7 @@
 							"path": [
 								"clients",
 								"update",
-								"19"
+								"23"
 							]
 						}
 					},
@@ -83,7 +83,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/clients/delete/20",
+							"raw": "http://localhost:8080/clients/delete/25",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -92,7 +92,7 @@
 							"path": [
 								"clients",
 								"delete",
-								"20"
+								"25"
 							]
 						}
 					},
@@ -124,7 +124,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/clients/19",
+							"raw": "http://localhost:8080/clients/23",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -132,7 +132,7 @@
 							"port": "8080",
 							"path": [
 								"clients",
-								"19"
+								"23"
 							]
 						}
 					},
@@ -150,7 +150,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"TV OLED 4K\",\r\n    \"price\": 599999.99,\r\n    \"stock\": 5\r\n}",
+							"raw": "{\r\n    \"name\": \"Samsung S23+ 256gb\",\r\n    \"price\": 1699999.99,\r\n    \"stock\": 89\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -179,7 +179,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Parlantes Hi-Fi\",\r\n    \"price\": 899999.99,\r\n    \"stock\": 28\r\n}",
+							"raw": "{\r\n    \"name\": \"Samsung S23+ 256gb\",\r\n    \"price\": 1654999.99,\r\n    \"stock\": 44\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -187,7 +187,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/products/update/2",
+							"raw": "http://localhost:8080/products/update/7",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -196,7 +196,7 @@
 							"path": [
 								"products",
 								"update",
-								"2"
+								"7"
 							]
 						}
 					},
@@ -217,7 +217,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/products/delete/3",
+							"raw": "http://localhost:8080/products/delete/7",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -226,7 +226,7 @@
 							"path": [
 								"products",
 								"delete",
-								"3"
+								"7"
 							]
 						}
 					},
@@ -258,7 +258,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/products/2",
+							"raw": "http://localhost:8080/products/7",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -266,7 +266,7 @@
 							"port": "8080",
 							"path": [
 								"products",
-								"2"
+								"7"
 							]
 						}
 					},
@@ -284,7 +284,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"clientId\": 18,\r\n  \"productId\": 1,\r\n  \"quantity\": 6,\r\n  \"total\": 385020.85\r\n}",
+							"raw": "{\r\n  \"clientId\": 18,\r\n  \"productIds\": [5,4,1],\r\n  \"quantity\": 3,\r\n  \"total\": 3499999.99\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -313,7 +313,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"clientId\": 18,\r\n  \"productId\": 1,\r\n  \"quantity\": 3,\r\n  \"total\": 200000.85\r\n}",
+							"raw": "{\r\n  \"clientId\": 18,\r\n  \"productIds\": [5,4],\r\n  \"quantity\": 2,\r\n  \"total\": 3499999.99\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -321,7 +321,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/sales/update/5",
+							"raw": "http://localhost:8080/sales/update/7",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -330,7 +330,7 @@
 							"path": [
 								"sales",
 								"update",
-								"5"
+								"7"
 							]
 						}
 					},
@@ -351,7 +351,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/sales/delete/3",
+							"raw": "http://localhost:8080/sales/delete/7",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -360,7 +360,7 @@
 							"path": [
 								"sales",
 								"delete",
-								"3"
+								"7"
 							]
 						}
 					},
@@ -392,7 +392,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/sales/2",
+							"raw": "http://localhost:8080/sales/6",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -400,7 +400,28 @@
 							"port": "8080",
 							"path": [
 								"sales",
-								"2"
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Invoice",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/sales/invoice/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sales",
+								"invoice",
+								"6"
 							]
 						}
 					},
