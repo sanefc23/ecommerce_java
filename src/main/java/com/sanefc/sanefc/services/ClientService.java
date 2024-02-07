@@ -18,8 +18,8 @@ public class ClientService {
         return clientRepository.findAll();
     }
 
-    public Client getClientById(Long id) {
-        return clientRepository.findById(id).get();
+    public Optional<Client> getClientById(Long id) {
+        return clientRepository.findById(id);
     }
 
     public Client createClient(Client client) {

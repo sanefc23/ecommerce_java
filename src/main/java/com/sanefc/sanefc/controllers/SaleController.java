@@ -9,6 +9,9 @@ import com.sanefc.sanefc.repository.ClientRepository;
 import com.sanefc.sanefc.repository.ProductRepository;
 
 import com.sanefc.sanefc.services.SaleService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,49 +32,49 @@ public class SaleController {
     @Autowired
     private ProductRepository productRepository;
 
+    @Operation(summary = "Get Sales", description = "Permite obtener todos las ventas.")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Operación exitosa"),})
     @GetMapping("/all")
     public List<Sale> getAllSales() {
         return saleService.getSales();
     }
 
+    @Operation(summary = "Get Sale by ID", description = "Permite obtener una venta por ID.")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Operación exitosa"), @ApiResponse(responseCode = "404", description = "Venta no encontrada")})
     @GetMapping("/{id}")
     public ResponseEntity<Sale> getSaleById(@PathVariable Long id) {
-        Sale foundSale = saleService.getSaleById(id);
-        return ResponseEntity.ok(foundSale);
+        Optional<Sale> foundSale = saleService.getSaleById(id);
+        return foundSale.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+    @Operation(summary = "Create Sale", description = "Permite crear una nuevo venta.")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Operación exitosa")})
     @PostMapping("/add")
     public ResponseEntity<Sale> addSale(@RequestBody SaleRequest saleRequest) {
         Sale createdSale = saleService.createSale(saleRequest);
-        if (createdSale != null) {
-            return ResponseEntity.status(HttpStatus.CREATED).body(createdSale);
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(createdSale);
-        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdSale);
     }
 
+    @Operation(summary = "Update Sale by ID", description = "Permite actualizar una venta por ID.")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Operación exitosa"), @ApiResponse(responseCode = "404", description = "Venta no encontrado")})
     @PutMapping("/update/{id}")
     public ResponseEntity<Sale> updateSale(@PathVariable Long id, @RequestBody SaleRequest saleRequest) {
-        Sale updatedSale = saleService.updateSale(id, saleRequest);
-        if (updatedSale != null) {
-            return ResponseEntity.ok(updatedSale);
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(updatedSale);
-        }
+        Optional<Sale> updatedSale = Optional.ofNullable(saleService.updateSale(id, saleRequest));
+        return updatedSale.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+    @Operation(summary = "Generate Invoice by ID", description = "Permite generar un ticket por ID.")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Operación exitosa"), @ApiResponse(responseCode = "404", description = "Venta no encontrada")})
     @GetMapping("/invoice/{id}")
     public String generateInvoice(@PathVariable Long id) {
-    return saleService.generateInvoice(id);
+        return saleService.generateInvoice(id);
     }
 
+    @Operation(summary = "Delete Sale by ID", description = "Permite eliminar una venta por ID.")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Operación exitosa"), @ApiResponse(responseCode = "404", description = "Venta no encontrado")})
     @DeleteMapping("/delete/{id}")
-    public String deleteSale(@PathVariable Long id) {
-        Sale deletedSale = saleService.deleteSale(id);
-        if(deletedSale != null){
-            return "Venta eliminada.";
-        } else{
-            return "Error. Venta no encontrado.";
-        }
+    public ResponseEntity<Sale> deleteSale(@PathVariable Long id) {
+        Optional<Sale> deletedSale = Optional.ofNullable(saleService.deleteSale(id));
+        return deletedSale.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 }

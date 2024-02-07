@@ -29,12 +29,12 @@ public class SaleService {
         return saleRepository.findAll();
     }
 
-    public Sale getSaleById(Long id) {
-        return saleRepository.findById(id).get();
+    public Optional<Sale> getSaleById(Long id) {
+        return saleRepository.findById(id);
     }
 
     public Sale createSale(SaleRequest saleRequest) {
-        Optional<Client> foundClient = Optional.ofNullable(clientService.getClientById(saleRequest.getClientId()));
+        Optional<Client> foundClient = clientService.getClientById(saleRequest.getClientId());
         if (foundClient.isEmpty()) {
             return null;
         }
@@ -42,8 +42,6 @@ public class SaleService {
         if (saleRequest.getProductIds() != null && !saleRequest.getProductIds().isEmpty()) {
             List<Long> productIdsIterable = saleRequest.getProductIds();
             foundProducts = productService.getProductsByIds(productIdsIterable);
-            System.out.println("A " + productService.getProductsByIds(productIdsIterable));
-            System.out.println("B " + foundProducts);
         } else {
             return null;
         }
@@ -58,7 +56,7 @@ public class SaleService {
     }
 
     public Sale updateSale(Long id, SaleRequest saleRequest) {
-        Optional<Client> foundClient = Optional.ofNullable(clientService.getClientById(saleRequest.getClientId()));
+        Optional<Client> foundClient = clientService.getClientById(saleRequest.getClientId());
 
         if (saleRequest.getProductIds() != null && !saleRequest.getProductIds().isEmpty()) {
             List<Product> foundProducts = productService.getProductsByIds(saleRequest.getProductIds());
