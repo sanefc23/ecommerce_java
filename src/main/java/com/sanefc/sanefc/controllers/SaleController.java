@@ -55,14 +55,6 @@ public class SaleController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdSale);
     }
 
-    @Operation(summary = "Update Sale by ID", description = "Permite actualizar una venta por ID.")
-    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Operación exitosa"), @ApiResponse(responseCode = "404", description = "Venta no encontrado")})
-    @PutMapping("/update/{id}")
-    public ResponseEntity<Sale> updateSale(@PathVariable Long id, @RequestBody SaleRequest saleRequest) {
-        Optional<Sale> updatedSale = Optional.ofNullable(saleService.updateSale(id, saleRequest));
-        return updatedSale.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
-    }
-
     @Operation(summary = "Generate Invoice by ID", description = "Permite generar un ticket por ID.")
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Operación exitosa"), @ApiResponse(responseCode = "404", description = "Venta no encontrada")})
     @GetMapping("/invoice/{id}")
