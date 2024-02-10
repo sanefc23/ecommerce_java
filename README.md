@@ -1,5 +1,5 @@
 Santiago Fernández Colareda - Ecommerce Coderhouse Java - Springboot
 
-Se incluye Postman collection para prueba de todos los endpoints generados, incluyendo request body modelo.
+Si fuese necesario, se incluye un dump de la base de datos que permite crear las tablas, e incluso insertar datos: https://github.com/sanefc23/ecommerce_java/tree/master/MYSQL%20Dump
 
-En la carpeta MYSQL Dump se encuentran backups de la base de datos para crear tablas e insertar valores de ejemplo.
+Se incluye Postman collection para prueba de todos los endpoints generados, incluyendo request body modelo: https://github.com/sanefc23/ecommerce_java/blob/master/Coderhouse%20Java%20Ecommerce.postman_collection.json
